@@ -1,3 +1,27 @@
-<p>
-  noticias works!
-</p>
+<ion-grid fixed>
+  <ion-row>
+    <ion-col *ngFor = "let not of noticias; let i = index"
+    size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
+    
+    <ion-card>
+
+      <ion-card-header>
+        <ion-card-subtitle>
+
+        <span class="text-azul">  {{i+1}}. </span>  
+        <span class="noticia-source-name">{{not.source.name}} </span>
+
+        </ion-card-subtitle>
+        <ion-card-title>{{not.title}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-img [src]="not.urlToImage"></ion-img>
+
+      <ion-card-content>
+        {{not.description}}
+      </ion-card-content>
+    </ion-card>
+
+  </ion-col>
+  </ion-row>
+</ion-grid>
