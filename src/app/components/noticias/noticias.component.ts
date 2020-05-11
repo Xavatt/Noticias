@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Article } from 'src/app/interfaces/interfaces';
+
 
 @Component({
   selector: 'app-noticias',
@@ -7,8 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticiasComponent implements OnInit {
 
-  constructor() { }
+  // Sirve para mandar a traer una arreglo de otro lugar
+  @Input() noticias: Article[] = [];
 
-  ngOnInit() {}
+  constructor(  ) { }
 
-}
+  ngOnInit() {
+     
+    }
+  }
+
+
