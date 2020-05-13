@@ -7,9 +7,20 @@ import { RespuestaNoticias } from '../interfaces/interfaces';
 })
 export class NoticiasService {
 
+  public baseUrl: any = 'http://newsapi.org/v2/';
+  public country: any = 'country=mx';
+  public apiKey: any = '&apiKey=1ee65e0be9694447a9f12b301e8789c1';
+
   constructor( private http: HttpClient ) { }
 
   getNoticias() {
-    return this.http.get<RespuestaNoticias>('http://newsapi.org/v2/top-headlines?country=mx&category=business&apiKey=1ee65e0be9694447a9f12b301e8789c1');
+    const url = this.baseUrl + 'top-headlines?' + this.country + '&category=business' + this.apiKey;
+    return this.http.get<RespuestaNoticias>( url );
+  }
+
+  getNoticiasCategoria(category)
+  {
+    const url = this.baseUrl + 'top-headlines?' + this.country + '&category=' + category + this.apiKey;
+    return this.http.get<RespuestaNoticias>(url);
   }
 }
