@@ -24,3 +24,19 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+// Mis estilos
+.text-azul
+{
+    // Estamos trayendo la variable de Ionic
+   //color: var(--ion-color-primary) !important;
+   color: var(--ion-color-danger) !important;
+}
+
+
+.noticia-source-name
+{
+    font-size: 15px;
+    color: darkturquoise;
+}
