@@ -48,7 +48,9 @@ export class Tab2Page implements OnInit{
   {
     const valorSegmento = event.detail.value;
 
-    this.categoria = valorSegmento; 
+    this.categoria = valorSegmento;
+    
+    this.noticias = [];
 
 
     this.noticiaService.getNoticiasCategoria(valorSegmento)
@@ -59,8 +61,6 @@ export class Tab2Page implements OnInit{
        //spread
        this.noticias.push(...data.articles);     
     })
-
-   
 
     console.log(valorSegmento);
   }

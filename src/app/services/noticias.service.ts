@@ -14,7 +14,7 @@ export class NoticiasService {
   constructor( private http: HttpClient ) { }
 
   getNoticias() {
-    const url = this.baseUrl + 'top-headlines?' + this.country + '&category=business' + this.apiKey;
+    const url = this.baseUrl + 'top-headlines?' + this.country +  this.apiKey;
     return this.http.get<RespuestaNoticias>( url );
   }
 
