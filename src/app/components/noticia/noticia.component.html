@@ -6,6 +6,14 @@
     <span class="text-azul">  {{i+1}}. </span>  
     <span class="noticia-source-name">{{noticia.source.name}} </span>
 
+
+    <div class="noticia-add">      
+      <ion-button (click)="menuActionSheet()" fill="clear">
+        <ion-icon color="success" slot="icon-only" name="alert-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    
     </ion-card-subtitle>
     <ion-card-title (click)= "abrirNoticiaNavegador()">{{noticia.title}}</ion-card-title>
   </ion-card-header>
