@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Article } from 'src/app/interfaces/interfaces';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @Component({
   selector: 'app-noticia',
@@ -13,13 +14,15 @@ export class NoticiaComponent implements OnInit {
   @Input() i: number=0;
 
 
-  constructor() { }
+  constructor(private iab: InAppBrowser) { }
 
   ngOnInit() {}
 
   abrirNoticiaNavegador()
   {
-    console.log(this.noticia.url);
+    //console.log(this.noticia.url);
+    // Con la cadena _system lo va abrir en el navegador predeterminado del sistema operativo
+    const browser = this.iab.create(this.noticia.url,'_system');
   }
 
 }

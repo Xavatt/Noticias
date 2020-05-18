@@ -10,7 +10,10 @@
     <ion-card-title (click)= "abrirNoticiaNavegador()">{{noticia.title}}</ion-card-title>
   </ion-card-header>
 
-  <ion-img [src]="noticia.urlToImage"  (click)= "abrirNoticiaNavegador()"></ion-img>
+  <ion-img *ngIf="noticia.urlToImage"
+    [src]="noticia.urlToImage"  
+    (click)= "abrirNoticiaNavegador()">
+  </ion-img>
 
   <ion-card-content (click)= "abrirNoticiaNavegador()">
     {{noticia.description}}
