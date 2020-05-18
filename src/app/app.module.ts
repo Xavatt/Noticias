@@ -12,12 +12,15 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [ BrowserModule, 
-    IonicModule.forRoot(), 
+    IonicModule.forRoot(),
+    IonicStorageModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule
   ],
@@ -25,6 +28,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
     StatusBar,
     InAppBrowser,
     SocialSharing,
+    NativeStorage,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

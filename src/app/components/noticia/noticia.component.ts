@@ -3,6 +3,7 @@ import { Article } from 'src/app/interfaces/interfaces';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { StorageLocalService } from 'src/app/services/storage-local.service';
 
 @Component({
   selector: 'app-noticia',
@@ -18,7 +19,8 @@ export class NoticiaComponent implements OnInit {
 
   constructor(  private iab: InAppBrowser, 
                 public aSC: ActionSheetController,
-                private sS: SocialSharing) { }
+                private sS: SocialSharing,
+                private sL: StorageLocalService) { }
 
   ngOnInit() {}
 
@@ -36,7 +38,7 @@ export class NoticiaComponent implements OnInit {
           text: 'Compartir',
           icon: 'share',
           handler: () => {
-            console.log('Compartir');
+            console.log('Compartir');           
             this.sS.share(
               this.noticia.title,
               this.noticia.source.name,
@@ -48,7 +50,8 @@ export class NoticiaComponent implements OnInit {
           text: 'Favorito',
           icon: 'heart',
           handler: () => {
-            console.log('Favorito');
+            console.log('Favorito');            
+            this.sL.guardarNoticias(this.noticia);            
           }
         }, 
         {
