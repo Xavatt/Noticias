@@ -16,7 +16,7 @@ export class Tab1Page implements OnInit{
   ngOnInit() {
     this.noticiasService.getNoticias()
     .subscribe( data => {
-       console.log(data);
+       //console.log(data);
        //this.noticias = data.articles;  
        //spread
        this.noticias.push(...data.articles);     

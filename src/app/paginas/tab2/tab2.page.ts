@@ -37,7 +37,7 @@ export class Tab2Page implements OnInit{
     
     this.noticiaService.getNoticiasCategoria(this.categorias[0])
     .subscribe( data => {
-       console.log(data);
+       //console.log(data);
        //this.noticias = data.articles;  
        //spread
        this.noticias.push(...data.articles);     
@@ -55,14 +55,14 @@ export class Tab2Page implements OnInit{
 
     this.noticiaService.getNoticiasCategoria(valorSegmento)
     .subscribe( data => {
-       console.log(data);
-       console.log("dentro de getcategoria:",valorSegmento);
+       //console.log(data);
+       //console.log("dentro de getcategoria:",valorSegmento);
        //this.noticias = data.articles;  
        //spread
        this.noticias.push(...data.articles);     
     })
 
-    console.log(valorSegmento);
+    //console.log(valorSegmento);
   }
 
 
