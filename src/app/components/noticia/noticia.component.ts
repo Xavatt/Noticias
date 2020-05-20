@@ -15,6 +15,7 @@ export class NoticiaComponent implements OnInit {
 
   @Input() noticia: Article;
   @Input() i: number=0;
+  @Input() enFavoritos: boolean;
 
 
   constructor(  private iab: InAppBrowser, 
@@ -33,6 +34,32 @@ export class NoticiaComponent implements OnInit {
 
   async menuActionSheet()
   {
+
+    let x;
+    if(this.enFavoritos)
+    {
+      x =  {
+        text: 'Borrar Favorito',
+        icon: 'trash',
+        handler: () => {
+          console.log('Borrado de Favorito');            
+          this.sL.borrarNoticia(this.noticia);            
+        }
+
+      }
+    }
+    else{
+      x =  {
+        text: 'Favorito',
+        icon: 'heart',
+        handler: () => {
+          console.log('Favorito');            
+          this.sL.guardarNoticias(this.noticia);            
+        }
+
+      }
+    }
+
       const actionSheet = await this.aSC.create({        
         buttons: [{
           text: 'Compartir',
@@ -46,14 +73,7 @@ export class NoticiaComponent implements OnInit {
               this.noticia.url);
           }
         }, 
-        {
-          text: 'Favorito',
-          icon: 'heart',
-          handler: () => {
-            console.log('Favorito');            
-            this.sL.guardarNoticias(this.noticia);            
-          }
-        }, 
+        x,
         {
           text: 'Cancel',
           icon: 'close',
@@ -66,7 +86,7 @@ export class NoticiaComponent implements OnInit {
       await actionSheet.present();
 
     }
-      
+  
   }
 
   

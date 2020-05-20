@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StorageLocalService } from 'src/app/services/storage-local.service';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor( public sL: StorageLocalService ) {
+
+
+  }
+
+
 
 }

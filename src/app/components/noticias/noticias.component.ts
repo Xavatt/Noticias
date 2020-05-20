@@ -11,6 +11,7 @@ export class NoticiasComponent implements OnInit {
 
   // Sirve para mandar a traer una arreglo de otro lugar
   @Input() noticias: Article[] = [];
+  @Input() enFavoritos = false;
 
   constructor(  ) { }
 
